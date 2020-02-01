@@ -59,7 +59,7 @@ class CountDown extends React.Component {
     AppState.removeEventListener('change', this._handleAppStateChange);
   }
 
-  componentWillReceiveProps(nextProps) {
+  getSnapshotBeforeUpdate(nextProps, prevState) {
     if (this.props.until !== nextProps.until || this.props.id !== nextProps.id) {
       this.setState({
         lastUntil: this.state.until,
